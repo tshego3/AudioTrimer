@@ -11,9 +11,11 @@ namespace AudioTrimer
     {
         static void Main(string[] args)
         {
-            TimeSpan startTime = new TimeSpan(00, 00, 30); // Cuts the first 30 seconds of the audio file. 0,3 (No Math calculation).
-            TimeSpan endTime = new TimeSpan(00, 00, 84); // Cuts the last 84 seconds of the audio file. For example 2,54 - 1,24 = 1,30 and 1,30 - 0,30 = 1,00 making it a 1 minute audio file.
-            TrimWavFile("C:\\Users\\Dev Tshego\\Music\\Zuks - Oh God w_Ceazor.wav", "Zuks - Oh God w_Ceazor - Copy.wav", startTime, endTime);
+            TimeSpan startTime = new TimeSpan(00, 00, 30);  // Cuts the first 30 seconds of the audio file. 0,3 (in real time audio starts from 0:30).
+            TimeSpan endTime = new TimeSpan(00, 00, 84);    // Cuts the last 84 seconds of the audio file (in real time audio ends at 1:00).
+                                                            // The audio File total time is 2:54 and 84sec in real time is 1:24.
+                                                            // For example 2,54 - 1,24 = 1,30 (in real time 1:30) and 1,30 - 0,30 = 1,00 (in real time 1:00) making it a 1min audio file.
+            TrimWavFile("C:\\Users\\Dev Tshego\\Music\\AudioFile.wav", "AudioFile - Copy.wav", startTime, endTime);
             Console.WriteLine($"Start Total Seconds: {startTime.TotalSeconds} AND End Total Seconds: {endTime.TotalSeconds}");
             Console.ReadLine();
         }
